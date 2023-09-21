@@ -1,12 +1,14 @@
 <script setup>
-  import { onMounted } from 'vue'
+  import { onMounted, ref } from 'vue'
   import Diagram from 'diagram-js'
   import { bootstrapShapes } from '../../utils/bootstrap.js'
   import TouchModule from 'diagram-js/lib/features/touch'
   import SelectionModule from 'diagram-js/lib/features/selection'
   import OverlaysModule from 'diagram-js/lib/features/overlays'
 
-  let overlays, shapes, modeler
+  let shapes, modeler, overlays
+
+  const activeElementIds = ['s1', 's3']
 
   const bootstrapDiagram = () => {
     return new Diagram({
@@ -18,6 +20,7 @@
   // 实现 类 tooltip
   let hoverEl = null
   let timer = null
+  const htmlRef = ref(null)
 
   const stopTimer = () => {
     timer && clearTimeout(timer)
