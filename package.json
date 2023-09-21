@@ -1,0 +1,34 @@
+{
+  "name": "juejin-book-code",
+  "version": "1.0.0",
+  "description": "[玩转bpmn.js：前端流程图绘制工具全解析] 代码仓库",
+  "main": "index.js",
+  "scripts": {
+    "demo01": "cd packages/demo-diagram && pnpm run dev"
+  },
+  "dependencies": {
+    "bpmn-js": "^10.0.0",
+    "diagram-js": "^10.0.0",
+    "element-plus": "^2.2.17",
+    "mitt": "^3.0.0",
+    "vue": "^3.2.40",
+    "vue-router": "^4.2.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.1.0",
+    "bpmn-moddle": "^8.0.0",
+    "didi": "^9.0.0",
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.7.0",
+    "moddle": "^6.0.0",
+    "moddle-xml": "^10.0.0",
+    "object-refs": "^0.3.0",
+    "prettier": "^2.7.1",
+    "vite": "^3.1.0"
+  },
+  "keywords": [],
+  "author": "MiyueFE",
+  "license": "ISC"
+}

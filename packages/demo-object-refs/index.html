@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object Refs</title>
+    <script src="object-refs.js"></script>
+</head>
+<body>
+<script type="application/javascript">
+  const children = { name: 'children', enumerable: true, collection: true }
+  const parent = { name: 'parent' }
+  const parentRefs = new Refs({...children}, {...parent})
+
+  console.log(children, parent, parentRefs)
+
+  const outgoing = { name: 'outgoing', collection: true }
+  const source = { name: 'source' }
+  const outgoingRefs = new Refs({...outgoing}, {...source})
+
+  console.log(outgoing, source, outgoingRefs)
+
+
+  var refs = Refs({ name: 'wheels'}, { name: 'car' });
+
+  var car = { name: 'toyota' };
+  var wheels = [{ pos: 'front-left' }, { pos: 'front-right' }];
+
+  // refs.bind(car, 'wheels');
+  // car.wheels.add(wheels[0]);
+  // car.wheels.add(wheels[1]);
+  //
+  // car.wheels.remove(wheels[0]);
+  // wheels[0].car // undefined
+
+
+  refs.bind(wheels, 'car');
+  wheels.car = car
+
+  // car.wheels.add(wheels[0])
+
+  console.log('refs', refs)
+  console.log('car', car)
+  console.log('wheels', wheels)
+</script>
+</body>
+</html>
