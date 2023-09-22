@@ -1,5 +1,5 @@
 <script setup>
-  import { onMounted, ref } from 'vue'
+  import { onMounted, ref, shallowRef } from 'vue'
   import Diagram from 'diagram-js'
   import { bootstrapShapes } from '../../utils/bootstrap.js'
   import TouchModule from 'diagram-js/lib/features/touch'
@@ -18,7 +18,7 @@
   }
 
   // 实现 类 tooltip
-  let hoverEl = null
+  const hoverEl = shallowRef(null)
   let timer = null
   const htmlRef = ref(null)
 
@@ -26,22 +26,23 @@
     timer && clearTimeout(timer)
   }
   const startTimer = () => {
-    hoverEl = null
     stopTimer()
     timer = setTimeout(() => {
+      hoverEl.value = null
       overlays && overlays.clear()
     }, 2000)
   }
   const initHoverEvent = (eventBus) => {
     eventBus.on('element.hover', ({ element }) => {
-      if (element.isImplicit) {
-        return startTimer()
-      }
-      stopTimer()
-      overlays && overlays.clear()
-      if (!hoverEl || hoverEl !== element) {
-        hoverEl = element
-        overlays.add(hoverEl, { html: htmlRef.value, position: { left: element.width / 2, top: 0 } })
+      if (element && activeElementIds.indexOf(element.id) >= 0) {
+        stopTimer()
+        if (!hoverEl.value || hoverEl.value !== element) {
+          overlays && overlays.clear()
+          hoverEl.value = element
+          overlays.add(hoverEl.value, { html: htmlRef.value, position: { left: element.width / 2, top: 0 } })
+        }
+      } else {
+        startTimer()
       }
     })
   }
@@ -51,7 +52,7 @@
     overlays = modeler.get('overlays')
     shapes = bootstrapShapes(modeler.get('canvas'))
 
-    // initHoverEvent(modeler.get('eventBus'))
+    initHoverEvent(modeler.get('eventBus'))
   })
 </script>
 
@@ -64,6 +65,7 @@
           <div class="djs-popover__content">
             <p>This is a popover</p>
             <p>使用 div 手动实现</p>
+            <p v-if="hoverEl">Hover 元素 ID: {{ hoverEl.id }}</p>
           </div>
           <div class="djs-popover__arrow-wrapper">
             <div class="djs-popover__arrow"></div>
