@@ -26,6 +26,10 @@ const router = createRouter({
     {
       path: '/overlays3',
       component: () => import('./pages/Overlays/DOverlays3.vue')
+    },
+    {
+      path: '/create',
+      component: () => import('./pages/Create/CreateDemo.vue')
     }
   ]
 })

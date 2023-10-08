@@ -4,8 +4,10 @@ import { forEach, isArray } from 'min-dash'
 import { attr as domAttr, query as domQuery, classes as domClasses, domify as domify, delegate as domDelegate, event as domEvent } from 'min-dom'
 
 export default class ContextPad extends BaseContextPad {
+  constructor(canvas, config, eventBus, overlays, translate) {
+    super(canvas, config, eventBus, overlays)
+  }
   _updateAndOpen(target) {
-    console.log('_beauty', this._beauty)
     if (!this._beauty) {
       delete this._overlaysConfig.html
       return super._updateAndOpen(target)
@@ -33,7 +35,6 @@ export default class ContextPad extends BaseContextPad {
       pad = this.getPad(target),
       html = pad.html,
       image
-    console.log('grouping', 1)
 
     forEach(entries, function (entry, id) {
       let grouping = entry.group || 'default',
@@ -65,7 +66,7 @@ export default class ContextPad extends BaseContextPad {
       }
 
       if (entry.imageUrl) {
-        image = domify('<img>')
+        image = domify(`<img alt="${entry.title}-image" />`)
         domAttr(image, 'src', entry.imageUrl)
         image.style.width = '100%'
         image.style.height = '100%'
@@ -98,6 +99,8 @@ export default class ContextPad extends BaseContextPad {
   }
 }
 
+ContextPad.$inject = ['canvas', 'config.contextPad', 'eventBus', 'overlays']
+
 function addClasses(element, classNames) {
   const classes = domClasses(element)
 
@@ -106,14 +109,4 @@ function addClasses(element, classNames) {
   classNames.forEach(function (cls) {
     classes.add(cls)
   })
-}
-
-/**
- * @param {any[]} array
- * @param {any} item
- *
- * @return {boolean}
- */
-function includes(array, item) {
-  return array.indexOf(item) !== -1
 }

@@ -43,7 +43,7 @@ export class DemoContextPadProvider2 {
       'tool-one': {
         group: 'tools',
         className: 'tool-item EmotionalMutualAssistanceActive',
-        title: '新工具 1',
+        title: '新工具 111111111111111111111111111111111111',
         action: {
           click() {
             window.alert('使用 新的工具1')
@@ -51,7 +51,7 @@ export class DemoContextPadProvider2 {
         }
       },
       'tool-two': {
-        group: 'tools',
+        group: 'tools11111111111111111111111111111111111111',
         className: 'tool-item EmotionalMutualAssistanceActive',
         title: '切换ContextPad样式',
         action: {
@@ -63,7 +63,7 @@ export class DemoContextPadProvider2 {
       'element-two': {
         group: 'elements',
         className: 'element-creator FinancialExchangeActive',
-        title: '元素 2',
+        title: '元素 222222222222222222222222222222222222222222222',
         action: {
           click() {
             window.alert('创建元素2')
