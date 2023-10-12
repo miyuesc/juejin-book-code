@@ -28,8 +28,8 @@ const router = createRouter({
       component: () => import('./pages/Overlays/DOverlays3.vue')
     },
     {
-      path: '/create',
-      component: () => import('./pages/Create/CreateDemo.vue')
+      path: '/touch',
+      component: () => import('./pages/Touch/TouchEvents.vue')
     }
   ]
 })
