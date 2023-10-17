@@ -9,8 +9,8 @@
     return new Diagram({
       canvas: { container: document.getElementById(id) },
       modules: [
-        InteractionEventsModule
-        // TouchModule
+        // InteractionEventsModule
+        TouchModule
       ]
     })
   }
@@ -21,9 +21,9 @@
     const djs = bootstrapDiagram('touch-canvas')
     bootstrapShapes(djs.get('canvas'))
 
-    djs.get('eventBus').on(events, ({ element, gfx, originalEvent, type }) => {
-      console.log('eventType: ', type, ', element: ', element.id)
-    })
+    // djs.get('eventBus').on(events, ({ element, gfx, originalEvent, type }) => {
+    //   console.log('eventType: ', type, ', element: ', element.id, gfx, originalEvent)
+    // })
   })
 </script>
 

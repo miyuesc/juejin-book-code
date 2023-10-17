@@ -30,6 +30,10 @@ const router = createRouter({
     {
       path: '/touch',
       component: () => import('./pages/Touch/TouchEvents.vue')
+    },
+    {
+      path: '/selection',
+      component: () => import('./pages/Selection/SelectionModule.vue')
     }
   ]
 })
