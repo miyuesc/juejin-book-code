@@ -2,6 +2,7 @@
   import { onMounted } from 'vue'
   import Diagram from 'diagram-js'
   import MoveModule from 'diagram-js/lib/features/move'
+  import AutoScrollModule from 'diagram-js/lib/features/auto-scroll'
   import ModelingModule from 'diagram-js/lib/features/modeling'
   import { bootstrapShapes } from '../../utils/bootstrap.js'
 
@@ -12,7 +13,8 @@
       canvas: { container: document.getElementById(id) },
       modules: [
         MoveModule,
-        ModelingModule
+        ModelingModule,
+        AutoScrollModule
         // 自定义规则
         // CustomRules
       ]
@@ -51,5 +53,6 @@
   .canvas {
     width: 100%;
     height: 100%;
+    outline: 1px solid #333;
   }
 </style>
