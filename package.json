@@ -7,26 +7,26 @@
     "demo01": "cd packages/demo-diagram && pnpm run dev"
   },
   "dependencies": {
-    "bpmn-js": "^10.0.0",
-    "diagram-js": "^10.0.0",
-    "element-plus": "^2.2.17",
-    "mitt": "^3.0.0",
-    "vue": "^3.2.40",
-    "vue-router": "^4.2.4"
+    "bpmn-js": "^15.0.0",
+    "diagram-js": "^12.7.0",
+    "element-plus": "^2.4.1",
+    "mitt": "^3.0.1",
+    "vue": "^3.3.7",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^3.1.0",
-    "bpmn-moddle": "^8.0.0",
-    "didi": "^9.0.0",
-    "eslint": "^8.26.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-vue": "^9.7.0",
-    "moddle": "^6.0.0",
-    "moddle-xml": "^10.0.0",
+    "@vitejs/plugin-vue": "^4.4.0",
+    "bpmn-moddle": "^8.0.1",
+    "didi": "^9.0.2",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-vue": "^9.18.1",
+    "moddle": "^6.2.3",
+    "moddle-xml": "^10.1.0",
     "object-refs": "^0.3.0",
-    "prettier": "^2.7.1",
-    "vite": "^3.1.0"
+    "prettier": "^3.0.3",
+    "vite": "^4.5.0"
   },
   "keywords": [],
   "author": "MiyueFE",
