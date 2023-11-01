@@ -38,6 +38,10 @@ const router = createRouter({
     {
       path: '/draggingAndMove',
       component: () => import('./pages/DraggingAndMove/DraggingAndMoveModule.vue')
+    },
+    {
+      path: '/ModelingModule',
+      component: () => import('./pages/ModelingModule/ModelingModule.vue')
     }
   ]
 })
