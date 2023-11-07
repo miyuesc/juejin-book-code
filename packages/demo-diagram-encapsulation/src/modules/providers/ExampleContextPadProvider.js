@@ -28,21 +28,20 @@ ExampleContextPadProvider.prototype.getContextPadEntries = function (element) {
     connect.start(event, element, autoActivate)
   }
 
-  function appendElement(event) {
-    const shape = elementFactory.createShape({
+  function createShape() {
+    return elementFactory.createShape({
       width: 100,
       height: 80
     })
-
-    create.start(event, shape)
   }
 
-  function appendStart(event) {
-    const shape = elementFactory.createShape({
-      width: 100,
-      height: 80
-    })
+  function createElement(event) {
+    const shape = createShape()
+    create.start(event, shape, { source: element })
+  }
 
+  function appendElement(event) {
+    const shape = createShape()
     autoPlace.append(element, shape)
   }
 
@@ -53,7 +52,7 @@ ExampleContextPadProvider.prototype.getContextPadEntries = function (element) {
       title: 'Remove',
       action: {
         click: removeElement,
-        dragstart: appendElement
+        dragstart: removeElement
       }
     },
     append: {
@@ -61,8 +60,8 @@ ExampleContextPadProvider.prototype.getContextPadEntries = function (element) {
       className: 'context-pad-icon-append',
       title: 'Append',
       action: {
-        click: autoPlace ? appendStart : appendElement,
-        dragstart: appendElement
+        click: autoPlace ? appendElement : createElement,
+        dragstart: createElement
       }
     },
     connect: {
