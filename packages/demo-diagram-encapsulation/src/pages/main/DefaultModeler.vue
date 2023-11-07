@@ -10,7 +10,7 @@
       container: document.getElementById('modeler-content')
     })
 
-    // bootstrapShapes(modeler)
+    bootstrapShapes(modeler)
   })
 </script>
 

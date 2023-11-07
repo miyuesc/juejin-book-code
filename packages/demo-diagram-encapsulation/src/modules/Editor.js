@@ -14,6 +14,8 @@ import RulesModule from 'diagram-js/lib/features/rules'
 import SelectionModule from 'diagram-js/lib/features/selection'
 import ZoomScrollModule from 'diagram-js/lib/navigation/zoomscroll'
 
+import AutoPlaceModule from 'bpmn-js/lib/features/auto-place/index.js'
+
 import ProvidersModule from './providers'
 
 /**
@@ -57,7 +59,8 @@ export default function Editor(options) {
     ResizeModule,
     RulesModule,
     SelectionModule,
-    ZoomScrollModule
+    ZoomScrollModule,
+    AutoPlaceModule
   ]
 
   // our own modules, contributing controls, customizations, and more
