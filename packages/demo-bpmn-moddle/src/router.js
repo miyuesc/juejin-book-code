@@ -5,8 +5,13 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'main',
-      component: () => import('./pages/main/ModdleDemo.vue')
+      name: 'ParseName',
+      component: () => import('./pages/main/ParseNameDemo.vue')
+    },
+    {
+      path: '/moddle',
+      name: 'Moddle',
+      component: () => import('./pages/main/ModdelDemo.vue')
     }
   ]
 })
