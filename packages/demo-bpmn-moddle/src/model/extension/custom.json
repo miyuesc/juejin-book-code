@@ -5,29 +5,24 @@
   "types": [
     {
       "name": "CustomRoot",
-      "superClass": [ "Base" ],
-      "extends": [ "b:Root" ],
+      "superClass": ["b:Root"],
       "properties": [
-        { "name": "customAttr", "type": "Integer", "isAttr": true },
+        { "name": "ownAttr", "type": "Integer", "isAttr": true, "replaces": "b:Root#ownAttr" },
         { "name": "generic", "type": "CustomGeneric", "redefines": "b:Root#generic" }
       ]
     },
     {
       "name": "Base",
-      "properties": [
-        { "name": "customBaseAttr", "type": "Integer", "isAttr": true }
-      ]
+      "properties": [{ "name": "customBaseAttr", "type": "Integer", "isAttr": true }]
     },
     {
       "name": "CustomGeneric",
-      "superClass": [ "Element" ],
-      "properties": [
-        { "name": "count", "type": "Integer", "isAttr": true }
-      ]
+      "superClass": ["Element"],
+      "properties": [{ "name": "count", "type": "Integer", "isAttr": true }]
     },
     {
       "name": "Property",
-      "superClass": [ "Element" ],
+      "superClass": ["Element"],
       "properties": [
         { "name": "key", "type": "String", "isAttr": true },
         { "name": "value", "type": "String", "isAttr": true }
