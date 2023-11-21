@@ -12,6 +12,8 @@ import 'bpmn-js/dist/assets/bpmn-js.css'
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn.css'
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-codes.css'
 
+import './assets/high-contrast-canvas.css'
+
 const app = createApp(App)
 app.use(router)
 app.use(ElementPlus)

@@ -45,6 +45,8 @@
 
   console.log(model2)
 
+  console.log(model2.registry.getEffectiveDescriptor('c:CustomRoot'))
+
   const Root = model2.getType('b:Root')
   const CustomRoot = model2.getType('c:CustomRoot')
   console.log(new Root())
