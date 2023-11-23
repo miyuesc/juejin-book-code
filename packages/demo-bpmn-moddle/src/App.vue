@@ -13,7 +13,9 @@
 <template>
   <div class="container">
     <div class="header h-[40px] p2">
-      <n-button v-for="r in routes" :key="r.path" type="primary" @click="goToPage(r)">{{ r.name || r.path.replace('/', '') }}</n-button>
+      <n-space>
+        <n-button v-for="r in routes" :key="r.path" type="primary" @click="goToPage(r)">{{ r.name || r.path.replace('/', '') }}</n-button>
+      </n-space>
     </div>
     <div class="main">
       <router-view />

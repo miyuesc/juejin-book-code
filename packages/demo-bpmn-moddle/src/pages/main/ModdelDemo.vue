@@ -12,12 +12,13 @@
   const ComplexType = model.getType('props:Complex')
   const SimpleBody = model.getType('props:SimpleBody')
   const Attributes = model.getType('props:Attributes')
-  console.log(ComplexType, SimpleBody, Attributes)
+  console.log(ComplexType.toString(), '\n', SimpleBody.toString(), '\n', Attributes.toString())
 
   // initiate
   const complexTypeInst = model.create('props:Complex', { name: 'complex', id: 'complex', idx: 1 })
   const simpleBodyInst = model.create('props:SimpleBody', { body: 'simple', idx: 2 })
   const attributesInst = model.create('props:Attributes', { attrs: [complexTypeInst, simpleBodyInst], idx: 3 })
+  console.log(complexTypeInst, simpleBodyInst, attributesInst)
 
   // serialize
   const instance1 = model.create('props:Attributes')

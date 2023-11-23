@@ -12,6 +12,7 @@
     "element-plus": "^2.4.1",
     "mitt": "^3.0.1",
     "naive-ui": "^2.35.0",
+    "saxen": "^9.0.0",
     "unocss": "^0.57.2",
     "vue": "^3.3.7",
     "vue-router": "^4.2.5"

@@ -23,6 +23,9 @@ importers:
       naive-ui:
         specifier: ^2.35.0
         version: 2.35.0(vue@3.3.7)
+      saxen:
+        specifier: ^9.0.0
+        version: 9.0.0
       unocss:
         specifier: ^0.57.2
         version: 0.57.2(postcss@8.4.31)(vite@4.5.0)
@@ -2147,6 +2150,10 @@ packages:
 
   /saxen@8.1.2:
     resolution: {integrity: sha512-xUOiiFbc3Ow7p8KMxwsGICPx46ZQvy3+qfNVhrkwfz3Vvq45eGt98Ft5IQaA1R/7Tb5B5MKh9fUR9x3c3nDTxw==}
+
+  /saxen@9.0.0:
+    resolution: {integrity: sha512-LMrBjTOYmEQ89TA/jxfHNHwmtgJVIS54IjQgHoOyDo5VQGdGSnNCxY7T6/Zu0TC32tjgBcZq2H6ENpfCJvOdXQ==}
+    dev: false
 
   /seemly@0.3.6:
     resolution: {integrity: sha512-lEV5VB8BUKTo/AfktXJcy+JeXns26ylbMkIUco8CYREsQijuz4mrXres2Q+vMLdwkuLxJdIPQ8IlCIxLYm71Yw==}
