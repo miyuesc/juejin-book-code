@@ -1,5 +1,5 @@
 <script setup>
-  import { Parser, decode } from 'saxen'
+  import { decode, Parser } from 'saxen'
   import sampleXML from '../../utils/sample.js'
   import { createStack } from '../../utils/index.js'
 
@@ -61,25 +61,24 @@
   proxyParser.parse(sampleXML)
 
   // 解析一个完整的 xml
-  const stack = createStack()
-  stack.push({})
-  const xmlParser = new Parser({ proxy: true })
-  xmlParser.ns({
+  let stack = createStack()
+  const xmlParser1 = new Parser({ proxy: true })
+  xmlParser1.ns({
     'http://www.omg.org/spec/BPMN/20100524/MODEL': 'bpmn',
     'http://www.omg.org/spec/BPMN/20100524/DI': 'bpmndi',
     'http://www.omg.org/spec/DD/20100524/DI': 'di',
     'http://www.omg.org/spec/DD/20100524/DC': 'dc',
     'http://www.w3.org/2001/XMLSchema-instance': 'xsi'
   })
-  xmlParser
+
+  xmlParser1
     .on('openTag', function (obj, decodeStr, selfClosing, getContext) {
-      var attrs = obj.attrs || {}
-      var decodedAttrs = Object.keys(attrs).reduce(function (d, key) {
-        var value = decodeStr(attrs[key])
-        d[key] = value
+      const attrs = obj.attrs || {}
+      const decodedAttrs = Object.keys(attrs).reduce(function (d, key) {
+        d[key] = decodeStr(attrs[key])
         return d
       }, {})
-      var node = {
+      const node = {
         name: obj.name,
         originalName: obj.originalName,
         attributes: decodedAttrs,
@@ -88,20 +87,53 @@
       handleOpen(node, getContext)
     })
     .on('closeTag', handleClose)
+    .on('text', function (text, decodeEntities, getContext) {
+      handleText(decodeEntities(text), getContext)
+    })
+  xmlParser1.parse(sampleXML)
+  console.log(sampleXML)
+  console.log(stack)
 
+  stack = createStack()
+  const xmlParser2 = new Parser({ proxy: false })
+  xmlParser2.ns({
+    'http://www.omg.org/spec/BPMN/20100524/MODEL': 'bpmn',
+    'http://www.omg.org/spec/BPMN/20100524/DI': 'bpmndi',
+    'http://www.omg.org/spec/DD/20100524/DI': 'di',
+    'http://www.omg.org/spec/DD/20100524/DC': 'dc',
+    'http://www.w3.org/2001/XMLSchema-instance': 'xsi'
+  })
+  xmlParser2
+    .on('openTag', function (elementName, attrGetter, decodeEntities, selfClosing, getContext) {
+      const attrs = attrGetter()
+      const decodedAttrs = Object.keys(attrs).reduce(function (d, key) {
+        d[key] = decodeEntities(attrs[key])
+        return d
+      }, {})
+      const node = {
+        elementName,
+        attributes: decodedAttrs
+      }
+      handleOpen(node, getContext)
+    })
+    .on('closeTag', handleClose)
     .on('text', function (text, decodeEntities, getContext) {
       handleText(decodeEntities(text), getContext)
     })
 
-  xmlParser.parse(sampleXML)
-
+  xmlParser2.parse(sampleXML)
+  console.log(sampleXML)
   console.log(stack)
 
   function handleOpen(node) {
-    const handler = stack.peek()
     try {
-      !handler.children && (handler.children = [])
-      handler.children.push(node)
+      const element = stack.peek()
+      if (!element) {
+        stack[0] = node
+      } else {
+        !element.children && (element.children = [])
+        element.children.push(node)
+      }
       stack.push(node)
     } catch (err) {
       console.log(err)
@@ -110,7 +142,13 @@
   function handleClose() {
     stack.pop()
   }
-  function handleText(text) {}
+  function handleText(text) {
+    if (!text.trim()) {
+      return
+    }
+    const element = stack.peek()
+    element.body = text
+  }
 </script>
 
 <template>
