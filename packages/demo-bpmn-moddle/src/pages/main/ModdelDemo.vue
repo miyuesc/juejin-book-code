@@ -45,6 +45,7 @@
   const model2 = new Moddle([Base, Custom])
 
   console.log(model2)
+  console.log(model2.getPackages())
 
   console.log(model2.registry.getEffectiveDescriptor('c:CustomRoot'))
 
