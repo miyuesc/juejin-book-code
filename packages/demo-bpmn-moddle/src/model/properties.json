@@ -9,7 +9,8 @@
     {
       "name": "Complex",
       "properties": [
-        { "name": "id", "type": "String", "isAttr": true, "isId": true }
+        { "name": "id", "type": "String", "isAttr": true, "isId": true },
+        { "name": "body", "type": "String", "isBody": true }
       ]
     },
     {

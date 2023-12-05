@@ -8,10 +8,10 @@
   const xml = `<props:root xmlns:props="http://properties">
   <props:containedCollection id="C_5">
     <props:complex id="C_1" />
-    <props:complex id="C_2" />
+    <props:complex id="C_2">complex body string</props:complex>
     <props:complex id="C_3" />
   </props:containedCollection>
-  <props:attributeReferenceCollection id="C_4" refs="C_2 C_3 C_5" />
+  <props:attributeReferenceCollection id="C_4" refs="C_2 C_3 C_5 C-8" />
   <props:complexAttrsCol xmlns:props="http://properties">
     <props:attrs integerValue="10" />
     <props:attrs booleanValue="true" />
