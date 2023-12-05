@@ -112,6 +112,7 @@
       }, {})
       const node = {
         elementName,
+        attrs,
         attributes: decodedAttrs
       }
       handleOpen(node, getContext)

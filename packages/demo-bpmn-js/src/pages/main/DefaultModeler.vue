@@ -47,7 +47,6 @@
     await modeler.createDiagram()
     const model = modeler.get('moddle')
 
-    console.log(model)
     console.log(await model.fromXML(initialDiagram, 'bpmn:Definitions'))
     console.log(await model.fromXML(str, 'bpmn:SubProcess'))
     console.log(modeler.get('elementFactory').createShape({ type: 'bpmn:UserTask' }))

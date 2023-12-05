@@ -2,6 +2,9 @@
   "name": "Properties",
   "uri": "http://properties",
   "prefix": "props",
+  "xml" : {
+    "tagAlias": "lowerCase"
+  },
   "types": [
     {
       "name": "Complex",
@@ -13,14 +16,14 @@
       "name": "ComplexAttrs",
       "superClass": [ "Complex" ],
       "properties": [
-        { "name": "attrs", "type": "Attributes", "serialize": "xsi:type" }
+        { "name": "attrs", "type": "Attributes", "xml": { "serialize" : "xsi:type" } }
       ]
     },
     {
       "name": "ComplexAttrsCol",
-      "superClass": [ "Complex" ],
+      "superClass": [ "BaseWithId" ],
       "properties": [
-        { "name": "attrs", "type": "Attributes", "isMany": true, "serialize": "xsi:type" }
+        { "name": "attrs", "type": "Attributes", "isMany": true, "xml": { "serialize" : "xsi:type" } }
       ]
     },
     {
@@ -38,19 +41,54 @@
       ]
     },
     {
+      "name": "Body"
+    },
+    {
       "name": "SimpleBody",
+      "superClass": [ "Base", "Body" ],
+      "properties": [
+        {
+          "name": "body",
+          "type": "String",
+          "isBody": true
+        }
+      ]
+    },
+    {
+      "name": "WithBody",
       "superClass": [ "Base" ],
       "properties": [
-        { "name": "body", "type": "String", "isBody": true }
+        {
+          "name": "someBody",
+          "type": "Body",
+          "xml": { "serialize" : "xsi:type" }
+        }
       ]
     },
     {
       "name": "SimpleBodyProperties",
       "superClass": [ "Base" ],
       "properties": [
-        { "name": "intValue", "type": "Integer" },
-        { "name": "boolValue", "type": "Boolean" },
-        { "name": "str", "type": "String", "isMany": true }
+        {
+          "name": "intValue",
+          "type": "Integer"
+        },
+        {
+          "name": "boolValue",
+          "type": "Boolean"
+        },
+        {
+          "name": "str",
+          "type": "String",
+          "isMany": true
+        }
+      ]
+    },
+    {
+      "name": "WithProperty",
+      "superClass": [ "Base" ],
+      "properties": [
+        { "name": "propertyName", "type": "Base", "xml": { "serialize" : "property" }  }
       ]
     },
     {
@@ -67,17 +105,34 @@
       "name": "BaseWithNumericId",
       "superClass": [ "BaseWithId" ],
       "properties": [
-        { "name": "idNumeric", "type": "Integer", "isAttr": true, "redefines": "BaseWithId#id", "isId": true }
+        { "name": "idNumeric", "type": "String", "isAttr": true, "redefines": "BaseWithId#id", "isId": true }
       ]
     },
     {
       "name": "Attributes",
       "superClass": [ "BaseWithId" ],
       "properties": [
-        { "name": "realValue", "type": "Real", "isAttr": true },
-        { "name": "integerValue", "type": "Integer", "isAttr": true },
-        { "name": "booleanValue", "type": "Boolean", "isAttr": true },
-        { "name": "defaultBooleanValue", "type": "Boolean", "isAttr": true, "default": true }
+        {
+          "name": "realValue",
+          "type": "Real",
+          "isAttr": true
+        },
+        {
+          "name": "integerValue",
+          "type": "Integer",
+          "isAttr": true
+        },
+        {
+          "name": "booleanValue",
+          "type": "Boolean",
+          "isAttr": true
+        },
+        {
+          "name": "defaultBooleanValue",
+          "type": "Boolean",
+          "isAttr": true,
+          "default": true
+        }
       ]
     },
     {
@@ -87,40 +142,76 @@
     {
       "name": "Root",
       "properties": [
-        { "name": "any", "type": "Base", "isMany": true }
+        {
+          "name": "any",
+          "type": "Base",
+          "isMany": true
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isAttr": true,
+          "isId": true
+        }
       ]
     },
     {
       "name": "Embedding",
       "superClass": [ "BaseWithId" ],
       "properties": [
-        { "name": "embeddedComplex", "type": "Complex" }
+        {
+          "name": "embeddedComplex",
+          "type": "Complex"
+        }
       ]
     },
     {
       "name": "ReferencingSingle",
       "superClass": [ "BaseWithId" ],
       "properties": [
-        { "name": "referencedComplex", "type": "Complex", "isReference": true, "isAttr": true }
+        {
+          "name": "referencedComplex",
+          "type": "Complex",
+          "isReference": true,
+          "isAttr": true
+        }
       ]
     },
     {
       "name": "ReferencingCollection",
       "superClass": [ "BaseWithId" ],
       "properties": [
-        { "name": "references", "type": "Complex", "isReference": true, "isMany": true }
+        {
+          "name": "references",
+          "type": "Complex",
+          "isReference": true,
+          "isMany": true
+        }
       ]
     },
     {
       "name": "ContainedCollection",
       "superClass": [ "BaseWithId" ],
       "properties": [
-        { "name": "children", "type": "Complex", "isMany": true }
+        {
+          "name": "children",
+          "type": "Complex",
+          "isMany": true
+        }
       ]
     },
     {
-      "name": "MultipleSuper",
-      "superClass": ["Base","BaseWithId","SimpleBody"]
+      "name": "AttributeReferenceCollection",
+      "superClass": [ "BaseWithId" ],
+      "properties": [
+        {
+          "name": "refs",
+          "type": "Complex",
+          "isReference": true,
+          "isMany": true,
+          "isAttr": true
+        }
+      ]
     }
   ]
 }
