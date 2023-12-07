@@ -10,6 +10,7 @@
     "bpmn-js": "^15.0.0",
     "diagram-js": "^12.7.0",
     "element-plus": "^2.4.1",
+    "min-dash": "^4.1.1",
     "mitt": "^3.0.1",
     "naive-ui": "^2.35.0",
     "saxen": "^9.0.0",

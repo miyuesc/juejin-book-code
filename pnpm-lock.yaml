@@ -17,6 +17,9 @@ importers:
       element-plus:
         specifier: ^2.4.1
         version: 2.4.1(vue@3.3.7)
+      min-dash:
+        specifier: ^4.1.1
+        version: 4.1.1
       mitt:
         specifier: ^3.0.1
         version: 3.0.1
@@ -75,7 +78,11 @@ importers:
 
   packages/demo-bpmn-js: {}
 
-  packages/demo-bpmn-moddle: {}
+  packages/demo-bpmn-moddle:
+    dependencies:
+      '@bpmn-analysis/source-codes':
+        specifier: workspace:^1.0.0
+        version: link:../source-codes
 
   packages/demo-diagram: {}
 
@@ -86,6 +93,8 @@ importers:
   packages/demo-injector: {}
 
   packages/demo03: {}
+
+  packages/source-codes: {}
 
 packages:
 

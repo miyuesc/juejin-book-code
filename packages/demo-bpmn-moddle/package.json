@@ -1,11 +1,13 @@
 {
-  "name": "demo-bpmn-moddle",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@bpmn-analysis/demo-bpmn-moddle",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite --force",
     "build": "vite build",
     "preview": "vite preview"
+  },
+  "dependencies": {
+    "@bpmn-analysis/source-codes": "workspace:^1.0.0"
   }
 }

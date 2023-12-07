@@ -53,6 +53,12 @@
   const CustomRoot = model2.getType('c:CustomRoot')
   console.log(new Root())
   console.log(new CustomRoot())
+
+  //
+  const anyInstance = model.createAny('other:Foo', 'http://other', {
+    bar: 'BAR'
+  })
+  console.log('anyInstance', anyInstance)
 </script>
 
 <template>

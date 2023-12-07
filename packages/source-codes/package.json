@@ -1,0 +1,12 @@
+{
+  "name": "@bpmn-analysis/source-codes",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "files": [
+    "moddle-xml"
+  ],
+  "repository": {
+    "directory": "packages/source-codes"
+  }
+}
