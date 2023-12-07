@@ -19,9 +19,14 @@ const router = createRouter({
       component: () => import('./pages/main/SaxenDemo.vue')
     },
     {
-      path: '/moddle-xml',
-      name: 'moddle-xml',
-      component: () => import('./pages/main/ModdleXmlDemo.vue')
+      path: '/moddle-xml-reader',
+      name: 'moddle-xml-reader',
+      component: () => import('./pages/main/ModdleXmlReaderDemo.vue')
+    },
+    {
+      path: '/moddle-xml-writer',
+      name: 'moddle-xml-writer',
+      component: () => import('./pages/main/ModdleXmlWriterDemo.vue')
     }
   ]
 })

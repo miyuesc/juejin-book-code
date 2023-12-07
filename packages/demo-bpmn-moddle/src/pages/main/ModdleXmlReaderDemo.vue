@@ -1,6 +1,6 @@
 <script setup>
   import { Moddle } from 'moddle'
-  import { Reader, Writer } from 'moddle-xml'
+  import { Reader } from 'moddle-xml'
 
   import properties from '../../model/properties.json'
   import propertiesExtended from '../../model/properties-extended.json'
@@ -31,6 +31,25 @@
   }
 
   parseXML()
+
+  const xml2 = `<props:root xmlns:props="http://properties">
+  <props:containedCollection id="C_5">
+    <props:complex id="C_1" />
+    <props:complex id="C_2">complex body string</props:complex>
+    <props:complex id="C_3" />
+  </props:containedCollection>
+</props:root>`
+
+  const parseXML2 = async () => {
+    const rootHandler = reader.handler('props:Base')
+
+    console.log('rootHandler', rootHandler)
+
+    const root = await reader.fromXML(xml2, rootHandler)
+    console.log(root)
+  }
+
+  parseXML2()
 </script>
 
 <template>
