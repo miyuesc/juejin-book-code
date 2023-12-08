@@ -24,9 +24,9 @@
     refs: [complex1, complex2, complex3]
   })
 
-  const simpleBody1 = model.create('props:SimpleBody', { body: 'foo' })
-  const simpleBody2 = model.create('props:SimpleBody', { body: 'bar' })
-  const simpleBody3 = model.create('props:SimpleBody', { body: 'baz' })
+  const simpleBody1 = model.create('props:SimpleBody', { body: 'foo', otherAttr: 'other foo' })
+  const simpleBody2 = model.create('props:SimpleBody', { body: 'bar', anotherAttr: 'another bar' })
+  const simpleBody3 = model.create('props:SimpleBody', { body: 'baz', anotherAttr: 'another baz' })
 
   const colAttr1 = model.create('props:Attributes', { name: 'integerValue', value: 10 })
   const colAttr2 = model.create('props:Attributes', { name: 'booleanValue', value: true })
@@ -35,10 +35,14 @@
   })
   colAttr1.$parent = colAttr2.$parent = complexAttrsCol
 
+  const attr = model.create('props:Attributes', { name: 'booleanValue', value: true })
+
   const root = model.create('props:Root', {
-    any: [simpleBody1, simpleBody2, simpleBody3, containedCollection, attributeReferenceCollection, complexAttrsCol]
+    any: [attr, simpleBody1, simpleBody2, simpleBody3, containedCollection, attributeReferenceCollection, complexAttrsCol],
+    otherAttr: 'other root',
+    anotherAttr: 'another root'
   })
-  simpleBody1.$parent = simpleBody2.$parent = simpleBody3.$parent = root
+  attr.$parent = simpleBody1.$parent = simpleBody2.$parent = simpleBody3.$parent = root
   containedCollection.$parent = attributeReferenceCollection.$parent = complexAttrsCol.$parent = root
 
   console.log(root)
