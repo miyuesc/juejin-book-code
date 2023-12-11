@@ -17,7 +17,7 @@
       "name": "ComplexAttrs",
       "superClass": [ "Complex" ],
       "properties": [
-        { "name": "attrs", "type": "Attributes", "xml": { "serialize" : "xsi:type" } }
+        { "name": "attrs", "type": "Attributes" }
       ]
     },
     {
@@ -89,7 +89,9 @@
       "name": "WithProperty",
       "superClass": [ "Base" ],
       "properties": [
-        { "name": "propertyName", "type": "Base", "xml": { "serialize" : "property" }  }
+        { "name": "propertyName", "type": "Base", "xml": { "serialize" : "property" }  },
+        { "name": "typeName", "type": "Base", "xml": { "serialize" : "xsi:type" }  },
+        { "name": "defineName", "type": "Base", "xml": { "serialize" : "props:attributes" }  }
       ]
     },
     {
