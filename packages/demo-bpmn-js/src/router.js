@@ -5,12 +5,27 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/main'
+      redirect: '/viewer'
     },
     {
-      path: '/main',
-      name: 'main',
-      component: () => import('./pages/main/DefaultModeler.vue')
+      path: '/viewer',
+      name: 'viewer',
+      component: () => import('./pages/DefaultViewer.vue')
+    },
+    {
+      path: '/baseViewer',
+      name: 'baseViewer',
+      component: () => import('./pages/BaseViewer.vue')
+    },
+    {
+      path: '/navigatedViewer',
+      name: 'navigatedViewer',
+      component: () => import('./pages/NavigatedViewer.vue')
+    },
+    {
+      path: '/modeler',
+      name: 'modeler',
+      component: () => import('./pages/DefaultModeler.vue')
     }
   ]
 })
