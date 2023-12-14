@@ -1,0 +1,71 @@
+:root {
+    --gray-10: #f4f4f4;
+    --gray-20: #e0e0e0;
+    --gray-40: #a8a8a8;
+    --gray-80: #393939;
+    --gray-100: #161616;
+}
+
+/* Canvas */
+.bjs-container {
+    background-color: var(--gray-10);
+}
+
+.djs-container{
+    --palette-background-color: white;
+    --palette-separator-color: var(--gray-20);
+    --palette-entry-color: var(--gray-100);
+    --palette-border-color: var(--gray-20);
+
+    --context-pad-entry-background-color: var(--gray-10);
+}
+
+/* Properties Panel */
+.bio-properties-panel-header {
+    background-color: white;
+}
+
+/* Grid */
+defs pattern circle {
+    fill: hsl(0, 0%, 87%) !important;
+    fill: var(--gray-40) !important;
+}
+
+/* TODO: add styles to web modeler properly if permanent feature */
+/* Web Modeler */
+header[data-test="action-bar"] {
+    background-color: white;
+    border-bottom: 1px solid var(--gray-20);
+}
+
+div[data-test="error-panel-title"] {
+    background-color: white;
+    border-top: 1px solid var(--gray-20);
+    border-bottom: 1px solid var(--gray-20);
+}
+
+button[data-test="details-panel-toggle"] {
+    background-color: white;
+    border: none;
+    box-shadow: none;
+}
+
+button[data-test="details-panel-toggle"]:hover,
+button[data-test="details-panel-toggle"]:focus {
+    background-color: white;
+}
+
+div[data-test="modeler"] > div:not(.bjs-container) > div {
+    background-color: white;
+    box-shadow: none;
+    border: none;
+}
+
+div[data-test="details-panel-wrapper"] {
+    border: none;
+    box-shadow: none;
+}
+
+div[data-test="details-panel-wrapper"] div[aria-label="Details panel tabs"] {
+    background-color: white;
+}

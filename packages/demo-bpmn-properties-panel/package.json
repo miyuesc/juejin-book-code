@@ -1,0 +1,11 @@
+{
+  "name": "demo02",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --force --open",
+    "build": "vite build",
+    "preview": "vite preview"
+  }
+}

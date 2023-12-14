@@ -30,78 +30,83 @@
     })
 
     console.log(baseViewer)
+    baseViewer.on('import.parse.complete', (event) => {
+      console.log('---------------import.parse.complete---------------')
+      console.log(event)
+    })
 
     baseViewer
       .importXML(initialDiagram)
       .then((res) => {
         console.log('---------------importXML---------------')
         console.log(res)
+        console.log(baseViewer.get('elementRegistry').get('StartEvent_1'))
       })
       .catch((error) => {
         console.error('---------------importXML error---------------')
         const { message, warnings } = error
         console.info(message, warnings)
       })
-
-    baseViewer
-      .importXML(initialDiagram, 'BPMNDiagram_1')
-      .then((res) => {
-        console.log('---------------importXML with bpmnDiagram---------------')
-        console.log(res)
-      })
-      .catch((error) => {
-        console.error('---------------importXML with bpmnDiagram error---------------')
-        const { message, warnings } = error
-        console.info(message, warnings)
-      })
-
-    baseViewer
-      .importDefinitions({ $type: 'bpmn:Definitions' }, 'BPMNDiagram_1')
-      .then((res) => {
-        console.log('---------------importDefinitions with bpmnDiagram---------------')
-        console.log(res)
-      })
-      .catch((error) => {
-        console.error('---------------importDefinitions with bpmnDiagram error---------------')
-        const { message, warnings } = error
-        console.info(message, warnings)
-      })
-
-    baseViewer
-      .importDefinitions({ $type: 'bpmn:Definitions' })
-      .then((res) => {
-        console.log('---------------importDefinitions---------------')
-        console.log(res)
-      })
-      .catch((error) => {
-        console.error('---------------importDefinitions error---------------')
-        const { message, warnings } = error
-        console.info(message, warnings)
-      })
-
-    baseViewer
-      .open('BPMNDiagram_1')
-      .then((res) => {
-        console.log('---------------open with bpmnDiagramId---------------')
-        console.log(res)
-      })
-      .catch((error) => {
-        console.error('---------------open with bpmnDiagramId error---------------')
-        const { message, warnings } = error
-        console.info(message, warnings)
-      })
-
-    baseViewer
-      .open({ $type: 'bpmn:BPMNDiagram' })
-      .then((res) => {
-        console.log('---------------open with bpmnDiagramModdleElement---------------')
-        console.log(res)
-      })
-      .catch((error) => {
-        console.error('---------------open with bpmnDiagramModdleElement error---------------')
-        const { message, warnings } = error
-        console.info(message, warnings)
-      })
+    //
+    // baseViewer
+    //   .importXML(initialDiagram, 'BPMNDiagram_1')
+    //   .then((res) => {
+    //     console.log('---------------importXML with bpmnDiagram---------------')
+    //     console.log(res)
+    //   })
+    //   .catch((error) => {
+    //     console.error('---------------importXML with bpmnDiagram error---------------')
+    //     const { message, warnings } = error
+    //     console.info(message, warnings)
+    //   })
+    //
+    // baseViewer
+    //   .importDefinitions({ $type: 'bpmn:Definitions' }, 'BPMNDiagram_1')
+    //   .then((res) => {
+    //     console.log('---------------importDefinitions with bpmnDiagram---------------')
+    //     console.log(res)
+    //   })
+    //   .catch((error) => {
+    //     console.error('---------------importDefinitions with bpmnDiagram error---------------')
+    //     const { message, warnings } = error
+    //     console.info(message, warnings)
+    //   })
+    //
+    // baseViewer
+    //   .importDefinitions({ $type: 'bpmn:Definitions' })
+    //   .then((res) => {
+    //     console.log('---------------importDefinitions---------------')
+    //     console.log(res)
+    //   })
+    //   .catch((error) => {
+    //     console.error('---------------importDefinitions error---------------')
+    //     const { message, warnings } = error
+    //     console.info(message, warnings)
+    //   })
+    //
+    // baseViewer
+    //   .open('BPMNDiagram_1')
+    //   .then((res) => {
+    //     console.log('---------------open with bpmnDiagramId---------------')
+    //     console.log(res)
+    //   })
+    //   .catch((error) => {
+    //     console.error('---------------open with bpmnDiagramId error---------------')
+    //     const { message, warnings } = error
+    //     console.info(message, warnings)
+    //   })
+    //
+    // baseViewer
+    //   .open({ $type: 'bpmn:BPMNDiagram' })
+    //   .then((res) => {
+    //     console.log('---------------open with bpmnDiagramModdleElement---------------')
+    //     console.log(res)
+    //   })
+    //   .catch((error) => {
+    //     console.error('---------------open with bpmnDiagramModdleElement error---------------')
+    //     const { message, warnings } = error
+    //     console.info(message, warnings)
+    //   })
   })
 </script>
 
